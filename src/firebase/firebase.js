@@ -30,8 +30,8 @@ database.ref('age').set(23);
 database.ref('location/city').set('Sopot');
 
 database.ref('attributes').set({
-    height: '180 cm',
-    weight: '79 kg'
+    height: 180,
+    weight: 79
 });
 
 console.log('I made a request to change to the data.');
