@@ -13,25 +13,53 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 
+// child_removed
+database.ref('expenses').on('child_removed', (snapshot) => {
+    console.log(snapshot.key, snapshot.val());
+});
+
+// child_changed
+database.ref('expenses').on('child_changed', (snapshot) => {
+    console.log(snapshot.key, snapshot.val());
+});
+
+// child_added
+database.ref('expenses').on('child_added', (snapshot) => {
+    console.log(snapshot.key, snapshot.val());
+});
+
+// database.ref('expenses')
+//   .on('value', (snapshot) => {
+//       const expenses = [];
+
+//       snapshot.forEach((childSnapshot) => {
+//           expenses.push({
+//             id: childSnapshot.key,
+//             ...childSnapshot.val()
+//           });
+//       });
+//       console.log(expenses);
+//   });
+
+// database.ref('expenses')
+//   .once('value')
+//   .then((snapshot) => {
+//     const expenses = [];
+
+//     snapshot.forEach((childSnapshot) => {
+//         expenses.push({
+//             id: childSnapshot.key,
+//             ...childSnapshot.val()
+//         });
+//     });
+//     console.log(expenses);
+//   });
+
 database.ref('expenses').push({
     description: 'MacBook',
     note: 'Bill for notebook',
     amount: 508902,
     createdAt: 16600
-});
-
-database.ref('expenses').push({
-    description: 'Rent',
-    note: 'Bill for rent',
-    amount: 109500,
-    createdAt: 168600
-});
-
-database.ref('expenses').push({
-    description: 'Coffe',
-    note: 'Bill for coffee',
-    amount: 1200,
-    createdAt: 15000
 });
 
 // database.ref('notes/-LDxH39cQczwkDttdkuS').update({
