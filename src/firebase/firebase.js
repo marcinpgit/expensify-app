@@ -9,8 +9,29 @@ const config = {
     messagingSenderId: "7888853249"
   };
 
-  firebase.initializeApp(config);
+firebase.initializeApp(config);
 
-  firebase.database().ref().set({
-    name: 'Marcin'
-  });
+const database = firebase.database();
+
+database.ref().set({
+    name: 'Marcin',
+    age: 18,
+    isSingle: false,
+    location: {
+        city: 'Gdansk',
+        country: 'Poland'
+    }
+  });  
+
+//   database.ref().set('This is my data.');
+
+database.ref('age').set(23);
+
+database.ref('location/city').set('Sopot');
+
+database.ref('attributes').set({
+    height: '180 cm',
+    weight: '79 kg'
+});
+
+console.log('I made a request to change to the data.');
