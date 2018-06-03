@@ -13,20 +13,22 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 
+export{ firebase, database as default };
+
 // child_removed
-database.ref('expenses').on('child_removed', (snapshot) => {
-    console.log(snapshot.key, snapshot.val());
-});
+// database.ref('expenses').on('child_removed', (snapshot) => {
+//     console.log(snapshot.key, snapshot.val());
+// });
 
 // child_changed
-database.ref('expenses').on('child_changed', (snapshot) => {
-    console.log(snapshot.key, snapshot.val());
-});
+// database.ref('expenses').on('child_changed', (snapshot) => {
+//     console.log(snapshot.key, snapshot.val());
+// });
 
-// child_added
-database.ref('expenses').on('child_added', (snapshot) => {
-    console.log(snapshot.key, snapshot.val());
-});
+// child_added - gets called for new children and existing ones!
+// database.ref('expenses').on('child_added', (snapshot) => {
+//     console.log(snapshot.key, snapshot.val());
+// });
 
 // database.ref('expenses')
 //   .on('value', (snapshot) => {
@@ -55,12 +57,12 @@ database.ref('expenses').on('child_added', (snapshot) => {
 //     console.log(expenses);
 //   });
 
-database.ref('expenses').push({
-    description: 'MacBook',
-    note: 'Bill for notebook',
-    amount: 508902,
-    createdAt: 16600
-});
+// database.ref('expenses').push({
+//     description: 'MacBook',
+//     note: 'Bill for notebook',
+//     amount: 508902,
+//     createdAt: 16600
+// });
 
 // database.ref('notes/-LDxH39cQczwkDttdkuS').update({
 //     body: 'Buy food'
