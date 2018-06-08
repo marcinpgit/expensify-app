@@ -72,12 +72,14 @@ constructor(props) {
                         type='text'
                         placeholder='Description'
                         autoFocus
+                        className="text-input"
                         value={ this.state.description }
                         onChange={ this.onDescriptionChange }
                     />
                     <input
                         type='text'
                         placeholder='Amount'
+                        className="text-input"
                         value={ this.state.amount }
                         onChange={ this.onAmountChange }
                     />
@@ -91,6 +93,7 @@ constructor(props) {
                     />
                     <textarea
                         placeholder='Add a note for your expense (optional)'   
+                        className="text-area"
                         value={ this.state.note }
                         onChange={ this.onNoteChange }
                     >
